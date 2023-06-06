@@ -21,6 +21,83 @@
     return reminder;
   endfunction : rem
 
+  function real abs(input real in_val);
+    real ret_val;
+    ret_val = (in_val < 0.0) ? -in_val : in_val;
+    return ret_val;
+  endfunction : abs
+
+
+
+  // ceil 
+
+  function int ceil(input real x);
+    int result;
+    result = $ceil(x);
+    return result;
+  endfunction : ceil
+
+  // fix 
+
+  function int fix(input real x);
+    int ret_val;
+    if (x > 0) begin
+      ret_val = $floor(x);
+    end else begin
+      ret_val = $ceil(x);
+    end
+    return ret_val;
+  endfunction : fix
+
+  function real floor (input real x);
+    real ret_val;
+    ret_val = $floor (real'(x));
+    return ret_val;
+  endfunction : floor 
+
+
+  function real sqrt(real num);
+    real ret_val;
+    ret_val = $sqrt(num);
+    return ret_val;
+  endfunction : sqrt
+
+
+  /* MATLAB equivalent sign function
+   Y = sign(x) returns
+   1 if x is greater than 0.
+   0 if x is  == 0
+    -1 if x < 0
+     */
+
+
+  function int sign(input real in_val);
+    int ret_val;
+    ret_val = (in_val > 0.0) ? 1 : (in_val == 0.0) ? 0 : -1;
+
+    return ret_val;
+
+  endfunction : sign
+
+  //exponential
+
+  function real exp(input real nu);
+    real result;
+    result = M_E ** nu;
+    return result;
+  endfunction : exp
+
+
+
+  // log - log 10
+
+  function real log(input real in_val);
+    real ret_val;
+    ret_val = (in_val < 0.0) ? 0 : $log10 (in_val);
+    return ret_val;
+  endfunction : log
+
+
   /* AMS - rounding function
     Case positive:
       if fraction >= 0.5 ---> round return the "integer part" + 1 (for example 4.5 --->5)
@@ -155,38 +232,12 @@
     return ret_val;
   endfunction : do_tie 
 
+  // No truncate in Matalb??
   function int truncate(input real inp_val);
     int ret_val;
     ret_val = $rtoi(inp_val);
     return ret_val;
   endfunction : truncate
-
-  // ceil 
-
-  function int ceil(input real x);
-    int result;
-    result = $ceil(x);
-    return result;
-  endfunction : ceil
-
-  // fix 
-
-  function int fix(input real x);
-    int ret_val;
-    if (x > 0) begin
-      ret_val = $floor(x);
-    end else begin
-      ret_val = $ceil(x);
-    end
-    return ret_val;
-  endfunction : fix
-
-  function real floor (input real x);
-    real ret_val;
-    ret_val = $floor (real'(x));
-    return ret_val;
-  endfunction : floor 
-
 
   // sum for array of integers
 
@@ -196,48 +247,4 @@
     for (i = 0; i < array.size(); i = i + 1) result = result + array[i];
     return result;
   endfunction : sum
-
-
-
-  //exponential
-
-  function real exp(input real nu);
-    real result;
-    result = M_E ** nu;
-    return result;
-  endfunction : exp
-
-
-  // sqrt
-
-  function real sqrt(real num);
-    real ret_val;
-    ret_val = $sqrt(num);
-    return ret_val;
-  endfunction : sqrt
-
-
-  /* MATLAB equivalent sign function
-   Y = sign(x) returns
-   1 if x is greater than 0.
-   0 if x is  == 0
-    -1 if x < 0
-     */
-
-
-  function int sign(input real in_val);
-    int ret_val;
-    ret_val = (in_val > 0.0) ? 1 : (in_val == 0.0) ? 0 : -1;
-
-    return ret_val;
-
-  endfunction : sign
-
-  function real abs(input real in_val);
-    real ret_val;
-    ret_val = (in_val < 0.0) ? -in_val : in_val;
-    return ret_val;
-  endfunction : abs
-
-
 

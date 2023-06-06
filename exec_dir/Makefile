@@ -1,9 +1,19 @@
-all: mean fix ceil round abs rem mod floor 
+all: mean fix ceil round abs rem mod floor log exp 
 
 mean: clean
 	vlib work
 	vlog -mfcu -f flist ../tests/test_mean.sv -l mti_comp.log
 	vsim -c top -do "run -all;exit" -l mti_mean.log
+
+exp: clean
+	vlib work
+	vlog -mfcu -f flist ../tests/test_exp.sv -l mti_comp.log
+	vsim -c top -do "run -all;exit" -l mti_exp.log
+
+log: clean
+	vlib work
+	vlog -mfcu -f flist ../tests/test_log.sv -l mti_comp.log
+	vsim -c top -do "run -all;exit" -l mti_log.log
 
 floor: clean
 	vlib work
