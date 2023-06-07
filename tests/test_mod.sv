@@ -68,6 +68,19 @@ module top;
 
     `ml_printf (("rda_1d: \n%p \nmod_vec: \n%p\nres: \n%p",
       rda_1d, mod_rda_1d, res_rda_1d))
+
+    // Remainder After Division for Floating-Point Values
+    //
+    rda_1d = '{-3.2, 0};
+    mod_rda_1d = '{2{2}};
+    res_rda_1d = MathLibVec#()::mod(rda_1d, mod_rda_1d);
+
+    `ml_printf (("rda_1d: \n%p \nmod_vec: \n%p\nres: \n%p",
+      rda_1d, mod_rda_1d, res_rda_1d))
+
+    `ml_printf (("mod (-7,3): %f", mod(-7,3)))
+    `ml_printf (("mod (7,-3): %f", mod(7, -3)))
+
     `ml_display ("End")
 
     $finish(2);
