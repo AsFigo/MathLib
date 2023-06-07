@@ -13,7 +13,14 @@
     extern static function OUT_T ceil (INP_T in_vec);
     extern static function OUT_T fix (INP_T in_vec);
     extern static function OUT_T floor (INP_T in_vec);
+    extern static function ml_complex_vec_t sqrt (INP_T in_vec);
+    extern static function OUT_T sign (INP_T in_vec);
+    extern static function OUT_T exp (INP_T in_vec);
+    extern static function OUT_T log (INP_T in_vec);
 
+    extern static function OUT_T round (INP_T in_vec, 
+      input int N=0, 
+      input ml_round_tie_t tie = ML_TIE_NONE);
     extern static function OUT_T mean(INP_T in_val, 
       ml_mean_dim_t dim = ML_MEAN_COL);
 

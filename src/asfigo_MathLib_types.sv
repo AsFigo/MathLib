@@ -24,3 +24,10 @@
     ML_TIE_MINUSINF, ML_TIE_FROMZERO, ML_TIE_TOZERO 
   } ml_round_tie_t;
 
+  typedef struct {
+    real r;
+    real i;
+  } ml_complex_t;
+
+  typedef ml_complex_t ml_complex_vec_t [];
+  typedef ml_complex_t ml_complex_mat_t [][];

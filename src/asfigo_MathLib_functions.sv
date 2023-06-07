@@ -56,9 +56,15 @@
   endfunction : floor 
 
 
-  function real sqrt(real num);
-    real ret_val;
-    ret_val = $sqrt(num);
+  function ml_complex_t sqrt(real in_val);
+    ml_complex_t ret_val;
+    if (in_val >= 0.0) begin
+      ret_val.r = $sqrt(in_val);
+      ret_val.i = 0;
+    end else begin
+      ret_val.r = 0;
+      ret_val.i = $sqrt( (-1.0 * in_val));
+    end
     return ret_val;
   endfunction : sqrt
 

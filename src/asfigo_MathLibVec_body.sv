@@ -183,3 +183,113 @@
       end
       return ret_val;
     endfunction : floor
+
+    function ml_complex_vec_t MathLibVec::sqrt (INP_T in_vec);
+      ml_complex_vec_t ret_val;
+      int num_upk_dim;
+      int lv_num_vals;
+
+      num_upk_dim = $unpacked_dimensions (in_vec);
+
+      a_vec_chk : assert (num_upk_dim == 1) else
+        begin
+          $fatal (2, "Wrong usage - MathLibVec used with non vector input");
+        end;
+
+      lv_num_vals = in_vec.size();
+      ret_val = new[lv_num_vals];
+
+      for (int lv_i=0; lv_i < lv_num_vals; lv_i++) begin
+        ret_val[lv_i] = MathLib_pkg::sqrt(in_vec[lv_i]);
+      end
+      return ret_val;
+    endfunction : sqrt
+
+    function MathLibVec::OUT_T MathLibVec::sign (INP_T in_vec);
+      OUT_T ret_val;
+      int num_upk_dim;
+      int lv_num_vals;
+
+      num_upk_dim = $unpacked_dimensions (in_vec);
+
+      a_vec_chk : assert (num_upk_dim == 1) else
+        begin
+          $fatal (2, "Wrong usage - MathLibVec used with non vector input");
+        end;
+
+      lv_num_vals = in_vec.size();
+      ret_val = new[lv_num_vals];
+
+      for (int lv_i=0; lv_i < lv_num_vals; lv_i++) begin
+        ret_val[lv_i] = MathLib_pkg::sign(in_vec[lv_i]);
+      end
+      return ret_val;
+    endfunction : sign
+
+    function MathLibVec::OUT_T MathLibVec::exp (INP_T in_vec);
+      OUT_T ret_val;
+      int num_upk_dim;
+      int lv_num_vals;
+
+      num_upk_dim = $unpacked_dimensions (in_vec);
+
+      a_vec_chk : assert (num_upk_dim == 1) else
+        begin
+          $fatal (2, "Wrong usage - MathLibVec used with non vector input");
+        end;
+
+      lv_num_vals = in_vec.size();
+      ret_val = new[lv_num_vals];
+
+      for (int lv_i=0; lv_i < lv_num_vals; lv_i++) begin
+        ret_val[lv_i] = MathLib_pkg::exp(in_vec[lv_i]);
+      end
+      return ret_val;
+    endfunction : exp
+
+    function MathLibVec::OUT_T MathLibVec::log (INP_T in_vec);
+      OUT_T ret_val;
+      int num_upk_dim;
+      int lv_num_vals;
+
+      num_upk_dim = $unpacked_dimensions (in_vec);
+
+      a_vec_chk : assert (num_upk_dim == 1) else
+        begin
+          $fatal (2, "Wrong usage - MathLibVec used with non vector input");
+        end;
+
+      lv_num_vals = in_vec.size();
+      ret_val = new[lv_num_vals];
+
+      for (int lv_i=0; lv_i < lv_num_vals; lv_i++) begin
+        ret_val[lv_i] = MathLib_pkg::log(in_vec[lv_i]);
+      end
+      return ret_val;
+    endfunction : log
+
+    function MathLibVec::OUT_T MathLibVec::round(INP_T in_vec, 
+      input int N=0, 
+      input ml_round_tie_t tie = ML_TIE_NONE);
+
+      OUT_T ret_val;
+      int num_upk_dim;
+      int lv_num_vals;
+
+      num_upk_dim = $unpacked_dimensions (in_vec);
+
+      a_vec_chk : assert (num_upk_dim == 1) else
+        begin
+          $fatal (2, "Wrong usage - MathLibVec used with non vector input");
+        end;
+
+      lv_num_vals = in_vec.size();
+      ret_val = new[lv_num_vals];
+
+      for (int lv_i=0; lv_i < lv_num_vals; lv_i++) begin
+        ret_val[lv_i] = MathLib_pkg::round(in_vec[lv_i], N, tie);
+      end
+
+      return ret_val;
+    endfunction : round
+

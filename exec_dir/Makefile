@@ -5,6 +5,11 @@ mean: clean
 	vlog -mfcu -f flist ../tests/test_mean.sv -l mti_comp.log
 	vsim -c top -do "run -all;exit" -l mti_mean.log
 
+sqrt: clean
+	vlib work
+	vlog -mfcu -f flist ../tests/test_sqrt.sv -l mti_comp.log
+	vsim -c top -do "run -all;exit" -l mti_sqrt.log
+
 exp: clean
 	vlib work
 	vlog -mfcu -f flist ../tests/test_exp.sv -l mti_comp.log
