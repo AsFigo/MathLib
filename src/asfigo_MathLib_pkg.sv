@@ -12,9 +12,9 @@ package MathLib_pkg;
 
   `include "asfigo_MathLib_types.sv"
   `include "asfigo_MathLib_functions.sv"
-  `include "asfigo_MathLibVec_proto.sv"
+  `include "asfigo_MathLibVec_hdr.sv"
   `include "asfigo_MathLibVec_body.sv"
-  `include "asfigo_MathLibMat_proto.sv"
+  `include "asfigo_MathLibMat_hdr.sv"
   `include "asfigo_MathLibMat_body.sv"
 
 endpackage : MathLib_pkg
