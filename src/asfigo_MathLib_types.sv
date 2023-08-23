@@ -1,8 +1,9 @@
   // From math.h
-  // parameter real M_E = 2.7182818284590452354;  /* e */
+  parameter real M_E = 2.7182818284590452354;  /* e */
   // Rounded to 4 digits after decimal 
   // Fixes issue: https://github.com/AsFigo/MathLib/issues/6 
-  parameter real M_E = 2.7183;  /* e */
+  // parameter real M_E = 2.7183;  /* e */
+  // This is now fixed via ROUND call
   parameter real M_LOG2E = 1.4426950408889634074;  /* log_2 e */
   parameter real M_LOG10E = 0.43429448190325182765;  /* log_10 e */
   parameter real M_LN2 = 0.69314718055994530942;  /* log_e 2 */
