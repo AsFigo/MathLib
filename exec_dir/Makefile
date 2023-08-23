@@ -61,4 +61,9 @@ vlt: clean
 
 clean:
 	rm -fr work* vw_work_dir* obj* *.log
-	
+
+vhdl:
+	vcom ../vhdl/asfigo_mathlib_pkg.vhdl ../vhdl/test_af_pkg.vhdl
+	vsim -c test -do "run -all;exit" -l mti_vhdl.log
+
+
