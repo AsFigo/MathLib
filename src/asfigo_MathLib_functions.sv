@@ -89,7 +89,11 @@
 
   function real exp(input real nu);
     real result;
-    result = M_E ** nu;
+    real tmp_res;
+    tmp_res = M_E ** nu;
+    // Matlab has default rounding to 4 places after decimal
+    // TBD - add support for "long"
+    result = round (tmp_res, 4);
     return result;
   endfunction : exp
 
